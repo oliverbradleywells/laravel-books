@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::get('/api/books', 'APIBookController@index');
 
 Route::get('/books', 'BookController@index');
+
+Route::get('/books/{id}', 'BookController@show');

@@ -27,21 +27,25 @@
 
 
 <ul>
-{{--    <?php--}}
-{{--        foreach($books as $b):--}}
-{{--    ?>--}}
-{{--        --}}{{-- $b lives here! --}}
-{{--        <li>{{ $b->title }}</li>--}}
-{{--    <?php--}}
-{{--        endforeach;--}}
-{{--    ?>--}}
+    {{--    <?php--}}
+    {{--        foreach($books as $b):--}}
+    {{--    ?>--}}
+    {{--        --}}{{-- $b lives here! --}}
+    {{--        <li>{{ $b->title }}</li>--}}
+    {{--    <?php--}}
+    {{--        endforeach;--}}
+    {{--    ?>--}}
 
-{{--    @foreach($books as $i => $b)--}}
-{{--        <li>#{{ $i }} - {{ $b->title }}</li>--}}
-{{--    @endforeach--}}
+    {{--    @foreach($books as $i => $b)--}}
+    {{--        <li>#{{ $i }} - {{ $b->title }}</li>--}}
+    {{--    @endforeach--}}
 
     @foreach($books as $b)
-        <li>{{ $b->title }}</li>
+        <li>
+            <a href="{{ action('BookController@show', $b->id) }}">
+                {{ $b->title }}
+            </a>
+        </li>
     @endforeach
 
 </ul>

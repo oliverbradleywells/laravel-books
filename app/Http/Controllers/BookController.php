@@ -8,7 +8,7 @@ class BookController extends Controller
 {
     public function index()
     {
-        $bookCount = DB::table('books')->count();
+        $count = DB::table('books')->count();
         $books     = DB::table('books')->get();
 
         $a = 5;
@@ -49,10 +49,22 @@ class BookController extends Controller
 //        return compact(['count', 'books', 'review']);
 
         // this approach does not allow to rename the variables
-        $view = view('books.books', compact([
+        return view('books.books', compact([
             'count',
             'books',
             'review'
         ]));
+    }
+
+    public function show($id){
+
+        // $book = DB::table('books')->where('id', $id)->first();
+        $book = DB::table('books')->find($id);
+
+//        return view('books.show')->with('book', $book);
+//        return view('books.show', ['book' => $book]);
+
+        return view('books.show', compact(['book']));
+
     }
 }
