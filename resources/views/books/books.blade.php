@@ -3,7 +3,7 @@
 {{-- This is a commet which won't get to browser --}}
 {{-- <p>my variable is {{ $a }}</p> --}}
 
-<!-- Value of my variable is {{ $newVariable }} -->
+{{--<!-- Value of my variable is {{ $newVariable }} -->--}}
 
 <h1>List of books</h1>
 
@@ -11,7 +11,7 @@
 
 <p>There are {{ $count }} books in our catalogue</p>
 
-{{--<?php echo $newVariable; ?>--}}
+{{-- <?php echo $newVariable; ?> --}}
 {{--{{ $newVariable }}--}}
 
 {{--<?php echo $anotherVariable; ?>--}}
@@ -36,8 +36,12 @@
 {{--        endforeach;--}}
 {{--    ?>--}}
 
-    @foreach($books as $i => $b)
-        <li>#{{ $i }} - {{ $b->title }}</li>
+{{--    @foreach($books as $i => $b)--}}
+{{--        <li>#{{ $i }} - {{ $b->title }}</li>--}}
+{{--    @endforeach--}}
+
+    @foreach($books as $b)
+        <li>{{ $b->title }}</li>
     @endforeach
 
 </ul>
