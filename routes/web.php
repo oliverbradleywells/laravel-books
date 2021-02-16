@@ -25,3 +25,6 @@ Route::get('/books/{id}', 'BookController@show');
 
 Route::get('/publishers', 'PublisherController@index');
 Route::get('/publishers/{id}', 'PublisherController@show');
+
+
+Route::get('/eshop', 'EshopController@index');
