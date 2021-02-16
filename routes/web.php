@@ -28,3 +28,4 @@ Route::get('/publishers/{id}', 'PublisherController@show');
 
 
 Route::get('/eshop', 'EshopController@index');
+Route::get('/eshop/categories/{id}', 'EshopController@category');
