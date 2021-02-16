@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Publisher;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
 
 class PublisherController extends Controller
 {
@@ -20,5 +22,19 @@ class PublisherController extends Controller
         $books = DB::table('books')->where('publisher_id', $id)->get();
 
         return view('publishers.show', compact(['publisher', 'books']));
+    }
+
+    public function create()
+    {
+        return view('publishers.create');
+    }
+
+    public function store(Request $request)
+    {
+        $publisher = new Publisher;
+        $publisher->title = $request->input('title');
+        $publisher->save();
+
+        return redirect(action('PublisherController@index'));
     }
 }

@@ -29,6 +29,13 @@ class EshopController extends Controller
     {
         $subcategory = Subcategory::find($id);
 
+//        return $subcategory->category;
+
+//        $category = Category::find($subcategory->category_id);
+//        return $category;
+
+//        $books = Book::where('subcategory_id', $id)->get();
+
         return view('eshop/subcategory', compact(['subcategory']));
     }
 }
