@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Subcategory;
-use App\Models\Book;
-
 use Illuminate\Support\Facades\DB;
 
 class EshopController extends Controller
@@ -25,5 +23,12 @@ class EshopController extends Controller
 //        return view('eshop/category')->with(['category' => $category]);
 //        return view('eshop/category', ['category' => $category]);
         return view('eshop/category', compact(['category']));
+    }
+
+    public function subcategory($id)
+    {
+        $subcategory = Subcategory::find($id);
+
+        return view('eshop/subcategory', compact(['subcategory']));
     }
 }
