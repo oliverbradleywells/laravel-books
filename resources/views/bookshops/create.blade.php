@@ -1,26 +1,32 @@
-<form action="{{ action('BookshopController@store') }}" method="post">
-    @csrf
+@extends('layouts/main')
 
-    <div class="form-field">
+@section('content')
 
-        <label for="">Name:</label><br>
+    <form action="{{ action('BookshopController@store') }}" method="post">
+        @csrf
 
-        <input type="text" name="name" value="">
+        <div class="form-field">
 
-    </div>
+            <label for="">Name:</label>
 
-    <div class="form-field">
+            <input type="text" name="name" value="">
 
-        <label for="">City name:</label><br>
+        </div>
 
-        <input type="text" name="city" value="">
+        <div class="form-field">
 
-    </div>
+            <label for="">City name:</label>
 
-    <div class="form-field">
+            <input type="text" name="city" value="">
 
-        <button>Save</button>
+        </div>
 
-    </div>
+        <div class="form-field">
 
-</form>
+            <button>Save</button>
+
+        </div>
+
+    </form>
+
+@endsection

@@ -1,3 +1,7 @@
+@extends('layouts.main')
+
+@section('content')
+
 <h1>Bookshops</h1>
 
 <div class="controls">
@@ -15,3 +19,5 @@
     @endforeach
 
 </ul>
+
+@endsection
