@@ -1,4 +1,13 @@
-@extends('layouts.main')
+@extends('layouts.main', [
+    'title' => 'Bookshops index',
+    'current_menu_item' => 'bookshops'
+])
+
+@section('head_styles')
+
+    <link rel="stylesheet" href="/css/bookshops.css">
+
+@endsection
 
 @section('content')
 

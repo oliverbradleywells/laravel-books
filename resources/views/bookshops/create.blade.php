@@ -1,25 +1,23 @@
-@extends('layouts/main')
+@extends('layouts/main', [
+    'title' => 'Create a bookshop'
+])
 
 @section('content')
 
     <form action="{{ action('BookshopController@store') }}" method="post">
         @csrf
 
-        <div class="form-field">
-
-            <label for="">Name:</label>
+        @component('components.form-field', ['label' => 'Name'])
 
             <input type="text" name="name" value="">
 
-        </div>
+        @endcomponent
 
-        <div class="form-field">
-
-            <label for="">City name:</label>
+        @component('components.form-field', ['label' => 'City name'])
 
             <input type="text" name="city" value="">
 
-        </div>
+        @endcomponent
 
         <div class="form-field">
 
