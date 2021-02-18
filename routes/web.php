@@ -26,9 +26,11 @@ Route::get('/books/{id}', 'BookController@show');
 Route::get('/publishers', 'PublisherController@index');
 
 Route::get('/publishers/create', 'PublisherController@create');
-Route::post('/publisher/store', 'PublisherController@store');
+Route::post('/publishers/store', 'PublisherController@store');
 
 Route::get('/publishers/{id}', 'PublisherController@show');
+Route::get('/publishers/{id}/edit', 'PublisherController@edit');
+Route::put('/publishers/{id}', 'PublisherController@update');
 
 
 Route::get('/eshop', 'EshopController@index');
@@ -39,3 +41,10 @@ Route::get('/eshop/subcategories/{id}', 'EshopController@subcategory');
 Route::get('/bookshops/create', 'BookshopController@create');
 Route::post('/bookshops', 'BookshopController@store');
 Route::get('/bookshops', 'BookshopController@index');
+
+// categories
+Route::resource('categories', 'CategoryController');
+
+Route::patch('/test', function() {
+    return 'Pretending a PATCH request';
+});

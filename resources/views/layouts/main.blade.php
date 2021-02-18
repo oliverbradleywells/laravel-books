@@ -16,7 +16,7 @@
         'current' => $current_menu_item ?? null
     ])
 
-    @yield('alerts')
+    @include('common.alerts')
 
     @yield('content')
 
