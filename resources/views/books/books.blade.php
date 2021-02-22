@@ -1,3 +1,10 @@
+@extends('layouts.main', [
+    'title' => 'List of books',
+    'current_menu_item' => 'books'
+])
+
+@section('content')
+
 <!-- /resources/views/books/books.blade.php -->
 
 {{-- This is a commet which won't get to browser --}}
@@ -49,3 +56,5 @@
     @endforeach
 
 </ul>
+
+@endsection
