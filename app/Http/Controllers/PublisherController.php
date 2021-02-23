@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Publisher;
-use http\Client\Request;
+
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class PublisherController extends Controller
@@ -53,6 +54,8 @@ class PublisherController extends Controller
         ]);
 
         // validation passed...
+
+        return $request;
 
         // get new Publisher object
         $publisher = new Publisher;
