@@ -49,6 +49,7 @@ Route::get('/bookshops', 'BookshopController@index');
 
 // categories
 Route::resource('categories', 'CategoryController');
+Route::resource('subcategories', 'SubcategoryController');
 
 Route::patch('/test', function() {
     return 'Pretending a PATCH request';
