@@ -17,7 +17,6 @@
 >
     @csrf
     <textarea name="text"></textarea>
-
     <input type="number" name="rating"/>
     <input type="submit" value="create a review">
 </form>

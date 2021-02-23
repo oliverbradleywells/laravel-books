@@ -41,9 +41,7 @@ class ReviewController extends Controller
         ]);
 
         $data = $request->all();
-
         $data['book_id'] = $id;
-
         $review = Review::create($data);
 
 //        $review = new Review();
@@ -95,8 +93,8 @@ class ReviewController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($book_id, $review_id)
     {
-        //
+
     }
 }

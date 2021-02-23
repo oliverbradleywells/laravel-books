@@ -54,11 +54,9 @@ class PublisherController extends Controller
 
         // validation passed...
 
-//        return $request;
         Publisher::create($request->all());
 
-
-        //Without Mass assignment
+//        Without Mass assignment
 //        // get new Publisher object
 //        $publisher = new Publisher;
 //
