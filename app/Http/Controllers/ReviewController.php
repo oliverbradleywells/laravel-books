@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
@@ -32,9 +33,20 @@ class ReviewController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id, Request $request)
     {
-        //
+        $this->validate($request, [
+            'text' => 'required|string',
+            'rating' => 'required|numeric|min:0|max:100',
+        ]);
+
+        $review = new Review();
+        $review->book_id = $id;
+        $review->text = $request->input('text');
+        $review->rating = $request->input('rating');
+        $review->save();
+
+        return redirect( action('BookController@show', $id) );
     }
 
     /**
