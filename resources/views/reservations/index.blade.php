@@ -1,5 +1,6 @@
 <h1>Reservations</h1>
 
+<a href="{{action( 'ReservationController@create' )}}">Create</a>
 
 <table class="table table-striped">
     <tr>
@@ -17,8 +18,8 @@
                     {{ $reservation->user->name }}
                 @endif
             </td>
-            <td>{{ $reservation->from }}</td>
-            <td>{{ $reservation->to }}</td>
+            <td>{{ Carbon\Carbon::parse($reservation->from)->format('d. m. Y') }}</td>
+            <td>{{ Carbon\Carbon::parse($reservation->to)->format('d. m. Y') }}</td>
         </tr>
     @endforeach
 </table>
