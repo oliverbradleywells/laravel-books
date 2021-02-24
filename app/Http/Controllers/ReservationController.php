@@ -11,6 +11,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except('index');
+
+//        $this->middleware('auth')->only(['create', 'store']);
+    }
+
     public function index()
     {
 //        $user = Auth::user();
