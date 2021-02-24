@@ -10,8 +10,13 @@
     </tr>
     @foreach($reservations as $reservation)
         <tr>
-            <td></td>
             <td>{{ $reservation->book->title }}</td>
+        {{-- Trying to get property 'name' of non-object --}}
+            <td>
+                @if($reservation->user)
+                    {{ $reservation->user->name }}
+                @endif
+            </td>
             <td>{{ $reservation->from }}</td>
             <td>{{ $reservation->to }}</td>
         </tr>

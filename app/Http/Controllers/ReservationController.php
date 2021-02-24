@@ -7,10 +7,15 @@ use App\Models\Reservation;
 use App\Models\Subcategory;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
+
 class ReservationController extends Controller
 {
     public function index()
     {
+//        $user = Auth::user();
+//        return $user;
+
         $reservations = Reservation::all();
 
         return view('reservations.index', compact('reservations'));
@@ -31,7 +36,10 @@ class ReservationController extends Controller
             'to'      => 'required|date',
         ]);
 
-        Reservation::create($request->all());
+        $data = $request->all();
+        $data['user_id'] = Auth::id();
+
+        Reservation::create($data);
 
         return redirect(action('ReservationController@index'));
     }
