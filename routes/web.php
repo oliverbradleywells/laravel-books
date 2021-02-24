@@ -54,3 +54,7 @@ Route::resource('subcategories', 'SubcategoryController');
 Route::patch('/test', function() {
     return 'Pretending a PATCH request';
 });
+
+Route::get('reservations', 'ReservationController@index');
+Route::get('reservations/create', 'ReservationController@create');
+Route::post('reservations', 'ReservationController@store');
