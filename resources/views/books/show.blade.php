@@ -7,15 +7,19 @@
 
 <img src="{{ $book->image }}" alt="{{ $book->title }} - cover">
 
-<h2>Order this book</h2>
-<form action="{{ action('OrderController@order', $book->id) }}" method="post">
-    @csrf
+@if (Auth::user())
 
-    <input type="number" name="quantity" value="{{ old('quantity') }}">
+    <h2>Order this book</h2>
+    <form action="{{ action('OrderController@order', $book->id) }}" method="post">
+        @csrf
 
-    <input type="submit" value="Order!">
+        <input type="number" name="quantity" value="{{ old('quantity') }}">
 
-</form>
+        <input type="submit" value="Order!">
+
+    </form>
+
+@endif
 
 
 <a href="{{ action('BookController@index') }}">
@@ -26,15 +30,27 @@
 
 <h2>Reviews</h2>
 
-<form
-    method="post"
-    action="{{ action('ReviewController@store', $book->id) }}"
->
-    @csrf
-    <textarea name="text"></textarea>
-    <input type="number" name="rating"/>
-    <input type="submit" value="create a review">
-</form>
+@auth
+
+    <form
+        method="post"
+        action="{{ action('ReviewController@store', $book->id) }}"
+    >
+        @csrf
+        <textarea name="text"></textarea>
+        <input type="number" name="rating"/>
+        <input type="submit" value="create a review">
+    </form>
+
+@endauth
+
+@guest
+
+    <p>
+        Please <a href="{{ route('login') }}">log in</a> to submit a review.
+    </p>
+
+@endguest
 
 @foreach( $book->reviews as $review)
     <div>
