@@ -56,6 +56,21 @@
     <div>
         <p>{{ $review->text }}</p>
         <strong>{{ $review->rating }} / 100</strong>
+
+        @can('admin')
+
+            <form action="{{ action('ReviewController@destroy', [$book->id, $review->id]) }}" method="post">
+                @csrf
+                @method('delete')
+
+                <input
+                    type="submit"
+                    value="Delete this review"
+                    onclick="if (!confirm('Do you really want to delete this review?')) return false;"
+                >
+            </form>
+
+        @endcan
     </div>
 @endforeach
 
