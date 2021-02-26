@@ -10,7 +10,10 @@ class BookController extends Controller
     public function index()
     {
         $count = DB::table('books')->count();
-        $books     = DB::table('books')->get();
+        // $books     = Book::orderBy('id')->offset(10)->limit(10)->get();
+
+        $books     = Book::orderBy('id')->paginate(100); // sets the ->offset()
+                                                         // using $_GET['page']
 
         $a = 5;
         $b = 25;

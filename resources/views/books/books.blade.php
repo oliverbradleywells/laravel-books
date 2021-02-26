@@ -57,4 +57,6 @@
 
 </ul>
 
+{{ $books->onEachSide(5)->links() }}
+
 @endsection
