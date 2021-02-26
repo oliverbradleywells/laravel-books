@@ -26,6 +26,9 @@ Route::post('books/{id}/review', 'ReviewController@store');
 
 // Route::get('books/{book_id}/reviews/{review_id}', 'ReviewController@destroy');
 
+// search
+Route::get('/search', 'SearchController@books');
+
 
 // administration
 Route::group(['middleware' => [

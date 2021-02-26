@@ -27,3 +27,34 @@
     }
 
 }
+
+.search-results {
+    &__results {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__pagination {
+        ul {
+            display: flex;
+        }
+
+        li {
+            list-style-type: none;
+            margin: 0 0.5em;
+        }
+    }
+}
+
+.result-book {
+    display: flex;
+
+    &__image {
+        order: -1;
+        margin-right: 1em;
+
+        img {
+            width: 5em;
+        }
+    }
+}
