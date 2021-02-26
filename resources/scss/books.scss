@@ -32,6 +32,14 @@
     &__results {
         display: flex;
         flex-direction: column;
+
+        &--grid {
+            flex-flow: row wrap;
+
+            > * {
+                width: 20%;
+            }
+        }
     }
 
     &__pagination {
